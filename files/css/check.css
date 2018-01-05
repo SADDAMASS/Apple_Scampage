@@ -1,0 +1,295 @@
+<style>
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+.element,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol,
+ul {
+list-style: none;
+margin: 0 !important;
+padding: 0 !important;
+}
+blockquote,
+q {
+quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+.element {
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+background-color: #f9f9f7;
+margin: 0 auto 0;
+left: 0;
+position: absolute;
+width: 287px;
+}
+.element h2 {
+color: #555;
+font-family: "ff-dagny-web-pro", "Helvetica Neue", Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 16px;
+font-style: normal;
+margin-bottom: 0;
+text-align: left;
+}
+.element li {
+}
+.element li .help {
+color: #aaa;
+display: block;
+font-size: 11px;
+font-weight: 400;
+line-height: 14px;
+padding-top: 14px;
+}
+.element li .help a {
+color: #76a1cd;
+}
+.element label {
+color: #555;
+display: block;
+font-size: 14px;
+font-weight: 400;
+}
+.element input {
+background-color: #fff;
+border: 1px solid rgb(214, 214, 214) !important;
+color: #333;
+display: block;
+font-size: 18px;
+height: 32px;
+padding: 0 5px;
+width: 275px;
+-moz-box-sizing: content-box;
+-webkit-box-sizing: content-box;
+border-radius: 5px;
+}
+.element input::-webkit-input-placeholder {
+color: #ddd;
+}
+.element input:-moz-placeholder {
+color: #ddd;
+opacity: 1;
+}
+.element input::-moz-placeholder {
+color: #ddd;
+opacity: 1;
+}
+.element input:-ms-input-placeholder {
+color: #ddd;
+}
+.element input:focus {
+box-shadow: 0 0 0 1px #3388dd;
+}
+input:focus {
+  box-shadow: 0 0 0 1px #3388dd !important;
+}
+.element #card_number {
+position: absolute;
+top: 50px;
+left: 20px;
+width: 199px;
+background-image: url(images.png), url(images.png);
+background-position: 2px -106px, 238px -53px;
+background-size: 120px 361px, 120px 361px;
+background-repeat: no-repeat;
+padding-left: 54px;
+border-radius: 5px;
+}
+.element #card_number.visa {
+background-position: 2px -143px, 238px -53px;
+}
+.element #card_number.visa_electron {
+background-position: 2px -181px, 238px -53px;
+}
+.element #card_number.mastercard {
+background-position: 2px -219px, 238px -53px;
+}
+.element #card_number.maestro {
+background-position: 2px -256px, 238px -53px;
+}
+.element #card_number.discover {
+background-position: 2px -295px, 238px -53px;
+}
+.element #card_number.amex {
+background-position: 2px -332px, 238px -53px;
+}
+/*******/
+.element #card_number.valid.visa {
+background-position: 2px -143px, 238px -77px;
+}
+.element #card_number.valid.visa_electron {
+background-position: 2px -181px, 238px -77px;
+}
+.element #card_number.valid.mastercard {
+background-position: 2px -219px, 238px -77px;
+}
+.element #card_number.valid.maestro {
+background-position: 2px -256px, 238px -77px;
+}
+.element #card_number.valid.discover {
+background-position: 2px -295px, 238px -77px;
+}
+.element #card_number.valid.amex {
+background-position: 2px -332px, 238px -77px;
+}
+.vertical {
+overflow: hidden;
+}
+.vertical li {
+float: left;
+width: 140px;
+}
+.vertical li .or {
+color: #aaa;
+float: left;
+font-size: 12px;
+margin-left: -8px;
+margin-top: 32px;
+}
+.vertical li:last-child {
+float: right;
+text-align: right;
+}
+.vertical li:last-child input {
+float: right;
+}
+.vertical input {
+width: 68px;
+}
+ins {
+overflow: hidden;
+width: 100%;
+}
+body {
+background-color: #fff;
+color: #464640;
+font-family: "ff-dagny-web-pro", "Helvetica Neue", Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 19px;
+font-weight: 100;
+line-height: 28px;
+padding-top: 56px;
+}
+.fail {
+  box-shadow: 0 0 0 1px #f96868;
+  transition: .2s box-shadow;
+}
+</style>
