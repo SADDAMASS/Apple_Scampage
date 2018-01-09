@@ -6,7 +6,7 @@ include '../blockerz2.php';
 include '../sc.php';
 include '../curl.php';
 
-$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if (!file_exists('cookies')) {@mkdir('cookies', 0777, true);}
 
